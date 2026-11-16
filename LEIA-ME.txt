@@ -1,0 +1,13 @@
+ANTÔNIA BRITO — PORTFÓLIO V3
+
+Extraia o ZIP e abra antonia-portfolio/index.html. Mantenha a pasta assets junto aos demais arquivos.
+
+Atualização: vitrine rotativa com quatro imagens enviadas pela usuária; links para estudos de caso demonstrativos.
+As imagens ainda precisam ser validadas quanto a direitos de uso e ausência de dados confidenciais antes da publicação pública.
+A narrativa dos projetos é provisória e não atribui resultados reais.
+
+V8 reconstruída a partir da V3 disponível, com as decisões posteriores. Não é cópia exata do arquivo V8 anterior.
+
+V9: categorias movidas para logo abaixo dos botoes da primeira tela.
+
+V10: Sobre mim com texto aprovado e 9 fotografias pessoais centralizadas, carrossel automático de 4 segundos, controles e suporte a movimento reduzido.

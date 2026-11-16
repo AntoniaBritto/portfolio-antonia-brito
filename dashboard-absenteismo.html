@@ -1,0 +1,236 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Absenteísmo | Dashboard demonstrativo</title><style>
+:root{font-family:Inter,Arial,sans-serif;color:#414752;background:#f3f4f6;--ink:#414752;--muted:#7b818c;--line:#edf0f3;--yellow:#d8ad17;--cream:#fffaf0}*{box-sizing:border-box}body{margin:0;background:#f3f4f6;color:var(--ink);font:13px/1.42 Inter,Arial,sans-serif}main{max-width:1510px;margin:auto;padding:25px 24px 36px}header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:20px}h1{font-size:clamp(25px,3vw,39px);letter-spacing:-1.3px;margin:0 0 7px;color:#424852;font-weight:700}header .sub{color:#7b818c;font-size:14px;margin:0}.filters{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.filters label{font-size:12px;color:#707782;display:grid;gap:6px}.filters select,.help{border:1px solid #d9dce2;background:#fff;border-radius:9px;padding:11px 12px;color:#424852;font-size:14px;min-width:112px}.help{min-width:42px;cursor:pointer;font-size:19px;font-weight:bold}.help:hover,.help:focus-visible{outline:2px solid #dfb32d}.kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}.kpi,.panel{background:#fff;border:1px solid #edf0f3;border-radius:15px;padding:17px;box-shadow:0 4px 13px #26324508;min-width:0}.kpi .label{font-size:12px;font-weight:650;color:#666d78;min-height:30px}.kpi strong{font-size:clamp(19px,2.1vw,30px);font-weight:700;letter-spacing:-1px;display:block;margin:5px 0;color:#454b55;white-space:nowrap}.kpi small{font-size:11px;color:#7b818c}.kpi.highlight{background:#fffaf0}.layout{margin-top:12px}.panel h2{font-size:18px;color:#444b55;margin:0 0 5px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:#707782}.dot{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px}.chart{display:block;width:100%;height:245px}.tables{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.scroll{overflow:auto;max-height:260px}table{border-collapse:collapse;width:100%;white-space:nowrap;font-size:11px}th{text-align:right;color:#656c77;background:#fff;position:sticky;top:0}th:first-child,td:first-child{text-align:left}td,th{padding:9px 6px;border-bottom:1px solid #e9ecf0}td:not(:first-child){text-align:right;font-variant-numeric:tabular-nums}.above,.below{font-weight:650;color:#414752}.heat{border-radius:5px;display:inline-block;padding:4px 6px;min-width:62px;text-align:right}.tree-toggle{border:1px solid #d9dce2;background:#fff;border-radius:5px;cursor:pointer;margin-right:7px;width:22px;height:22px}.child-row td:first-child{padding-left:26px}.scroll{max-height:340px}.foot{font-size:11px;color:#89909a;margin-top:9px}.details{margin-top:12px;background:#fff;border:1px solid #edf0f3;border-radius:15px;padding:15px}.details summary{cursor:pointer;font-weight:bold}.details p{font-size:12px;line-height:1.6;margin:9px 0}.muted{color:#7b818c}.info{cursor:help;border:0;background:transparent;color:#777;font-size:12px}.note{font-size:11px;color:#89909a;margin-top:10px}dialog{border:0;border-radius:17px;max-width:760px;width:calc(100% - 30px);max-height:85vh;overflow:auto;padding:25px;color:#454b55;box-shadow:0 20px 80px #0004}dialog::backdrop{background:#1c2735a6}.close{border:0;border-radius:7px;background:#f1f2f4;padding:8px 13px;cursor:pointer}dl{display:grid;grid-template-columns:180px 1fr;gap:13px 20px;font-size:13px;line-height:1.5}dt{font-weight:700}dd{margin:0}:focus-visible{outline:3px solid #e2b720;outline-offset:2px}@media(max-width:1150px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.tables{grid-template-columns:1fr}}@media(max-width:650px){main{padding:16px 12px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi{padding:14px}.kpi strong{font-size:22px}.filters{width:100%}.filters label{flex:1 1 42%}.filters select{width:100%;min-width:0}.chart{height:210px}dl{grid-template-columns:1fr;gap:5px}dd{margin-bottom:10px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Revisão 13: linguagem visual alinhada ao dashboard HC */
+body{font-size:13px}main{max-width:1510px;margin:auto;padding:25px 24px 45px}
+header{margin-bottom:22px;align-items:flex-start}h1{font-size:clamp(25px,3vw,39px);margin-bottom:7px}
+.filters{margin-left:auto;justify-content:flex-end;gap:10px;max-width:68%}
+.filters select,.help{min-width:105px;padding:10px 9px;font-size:13px}
+.filters label{font-size:11px}
+.kpis{grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.kpi,.panel{border-radius:15px;padding:15px;box-shadow:0 4px 13px #26324508}
+.kpi .label{font-size:12px;min-height:32px}
+.kpi strong{font-size:clamp(19px,2vw,30px);letter-spacing:-.8px;margin:5px 0}
+.kpi small{font-size:11px}.layout,.tables{margin-top:12px}
+.panel h2{font-size:19px}.chart{height:225px}
+.tables{grid-template-columns:1fr 1fr;gap:12px}.scroll{max-height:250px}
+.heat{min-width:52px}.panel-head .muted{font-size:12px}
+@media(max-width:1100px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.tables{grid-template-columns:1fr}.filters{max-width:100%}}
+@media(max-width:650px){main{padding:16px 12px}.filters{width:100%;justify-content:flex-start}.filters label{flex:1 1 40%}.filters select{width:100%}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi strong{font-size:22px}.chart{height:200px}}
+
+
+/* Mesmo canvas de referência do HC: 1510px, com escala proporcional no iframe. */
+main{width:1510px;max-width:none;margin:0;padding:25px 24px 36px}
+header{flex-wrap:nowrap;gap:20px;margin-bottom:20px}
+header>div:first-child{min-width:0;flex:1 1 auto}
+h1{font-size:39px;line-height:1.15}
+header .sub{font-size:14px}
+.filters{flex:0 0 auto;flex-wrap:nowrap;gap:12px;align-items:flex-end}
+.filters label{font-size:12px}
+.filters select{min-width:100px;padding:11px 12px;font-size:14px}
+.filters label:nth-child(4) select{min-width:125px}
+.filters label:nth-child(5) select{min-width:82px}
+.kpis{grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.kpi,.panel{border-radius:15px;padding:17px}
+.kpi .label{font-size:12px;min-height:30px}
+.kpi strong{font-size:26px}
+.kpi small{font-size:11px}
+.panel h2{font-size:18px}
+.chart{height:245px}
+.tables{grid-template-columns:1fr 1fr;gap:12px}
+.scroll{max-height:260px}
+table{font-size:11px}
+th,td{padding:9px 6px}
+@media(max-width:650px){main{width:100%;max-width:100%}header{flex-wrap:wrap}.filters{flex-wrap:wrap}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.tables{grid-template-columns:1fr}}
+
+.chart{height:410px;min-height:410px;overflow:visible}
+.layout>.panel{padding:20px 12px 16px}
+.panel-head{margin-bottom:14px;align-items:flex-start;padding:0 9px}
+.legend{gap:18px;font-size:12px;align-items:center}
+.legend .dot{width:11px;height:11px}
+#chartNote{margin-top:10px;font-size:12px;padding:0 9px}
+@media(max-width:900px){.chart{height:360px;min-height:360px}.layout>.panel{padding:16px 12px}.legend{gap:8px}}
+
+
+
+/* Prévia 06: matrizes com dimensões iguais, números centralizados e cores graduais. */
+.tables{align-items:stretch;gap:12px}
+.tables .panel{min-width:0;min-height:430px;height:100%}
+.tables .scroll{overflow-x:auto;overflow-y:visible;max-height:none}
+.tables table{width:100%;table-layout:fixed;white-space:normal;font-size:11px}
+.tables th,.tables td{padding:11px 7px;vertical-align:middle}
+.tables th:first-child,.tables td:first-child{width:24%;overflow-wrap:break-word}
+.tables th:not(:first-child),.tables td:not(:first-child){width:15.2%}
+.tables tbody td[style*="background"]{border-radius:0;font-weight:650}
+.tables .heat{background:transparent!important;padding:0;min-width:0}
+.tables th{position:static}
+.tables th:not(:first-child),.tables td:not(:first-child){text-align:center!important;font-variant-numeric:tabular-nums}
+.tables th:first-child,.tables td:first-child{text-align:left!important}
+.tables td.matrix-value{transition:background-color .15s ease}
+.tables .panel-head{min-height:68px;align-items:flex-start}
+.tables table{border-collapse:collapse}
+@media(max-width:900px){.tables .panel{min-height:0}}
+@media(max-width:900px){.tables{grid-template-columns:1fr}}
+
+/* Revisão 08: contraste, hierarquia visual e foco nos números. */
+:root{--ink:#27313f;--muted:#596579;--yellow:#c18a00}
+body{color:#27313f;background:#f1f3f6}
+h1,.panel h2{color:#27313f}
+.kpi{border-color:#dfe4ea;box-shadow:0 2px 10px #1b263012}
+.kpi strong{color:#222b39;font-weight:800;font-size:29px;letter-spacing:-.65px}
+.kpi .label{color:#4b5666;font-weight:700}
+.kpi small{color:#596579;font-size:12px}
+.kpi.highlight{background:#fff5dc;border-color:#f0dfb0}
+.panel{border-color:#e1e6eb}
+.panel-head .muted,.legend{color:#4b5666}
+.filters select,.help{border-color:#bfc8d4;color:#27313f}
+.filters select:focus-visible,.help:focus-visible,.tree-toggle:focus-visible{outline:3px solid #c18a00;outline-offset:2px}
+.tables th{color:#344255;font-weight:750}
+.tables td{color:#283546}
+.tables .matrix-value{font-weight:700}
+@media(max-width:650px){.kpi strong{font-size:23px}}
+</style></head><body><main><header><div><h1>ABSENTEÍSMO</h1><p class="sub">Monitoramento das ausências, impactos na jornada e tendências de fechamento.</p></div><div class="filters"><label>Ano<select disabled><option>2026</option></select></label><label>Mês<select id="month"><option value="8">Setembro</option><option value="9">Outubro</option><option value="10" selected>Novembro</option></select></label><label>Diretoria<select id="director"><option value="all">Todas</option></select></label><label>Operação<select id="operation"><option value="all">Todas</option></select></label><label>Até o dia<select id="cutoff"></select></label><button class="help" id="openGlossary" title="Abrir glossário" aria-label="Abrir glossário e metodologia">?</button></div></header>
+<section class="kpis" aria-label="Indicadores"><article class="kpi"><div class="label">Horas previstas</div><strong id="planned">—</strong><small>Escala até o dia selecionado</small></article><article class="kpi"><div class="label">Horas trabalhadas</div><strong id="worked">—</strong><small>Produção efetiva</small></article><article class="kpi"><div class="label">Absenteísmo (%)</div><strong id="real">—</strong><small>Impacto operacional</small></article><article class="kpi"><div class="label">Absenteísmo abonado</div><strong id="excused">—</strong><small>Abono confirmado</small></article><article class="kpi"><div class="label">% pendente de ajuste de ponto</div><strong id="pending">—</strong><small id="pendingHours">—</small></article><article class="kpi highlight"><div class="label">ABS projetado no fechamento</div><strong id="forecast">—</strong><small id="forecastNote">—</small></article></section>
+<div class="layout"><section class="panel"><div class="panel-head"><div><h2>Intraday | Escala e absenteísmo</h2><span class="muted">Escala diária do mês completo · linhas percentuais somente até a data de corte</span></div><div class="legend"><span><i class="dot" style="background:#e0e4e9"></i>Escala (h)</span><span><i class="dot" style="background:#414752"></i>ABS real (%)</span><span><i class="dot" style="background:#d8ad17"></i>ABS abonado (%)</span><span><i class="dot" style="background:#b6a2db"></i>Meta 8%</span></div></div><svg class="chart" id="timeline" role="img" aria-label="Gráfico combinado: barras de horas previstas para todos os dias do mês, linhas percentuais de absenteísmo real e abonado até a data de corte, e meta de 8 por cento"></svg><div class="foot" id="chartNote"></div></section></div>
+<div class="tables"><section class="panel"><div class="panel-head"><div><h2>Diretorias e operações</h2><span class="muted">Diretorias A, B e C · expanda para consultar operações · desvios em p.p.</span></div></div><div class="scroll"><table><thead><tr><th>Diretoria · Operação</th><th>ABS real</th><th>Desvio real</th><th>ABS abonado</th><th>Desvio abonado</th><th>% ajuste ponto</th></tr></thead><tbody id="operations"></tbody></table></div></section><section class="panel"><div class="panel-head"><div><h2>Gerências</h2><span class="muted">Quatro gerências (A, B, C1 e C2), sem rolagem interna · desvios em p.p.</span></div></div><div class="scroll"><table><thead><tr><th>Gerência</th><th>ABS real</th><th>Desvio real</th><th>ABS abonado</th><th>Desvio abonado</th><th>% ajuste ponto</th></tr></thead><tbody id="managers"></tbody></table></div></section></div>
+<dialog id="glossary"><div style="display:flex;justify-content:space-between;gap:16px;align-items:center"><h2>Glossário e metodologia</h2><button class="close" id="closeGlossary">Fechar</button></div><dl><dt>Horas previstas</dt><dd>O gráfico apresenta a escala de todos os dias do mês (barras) e as taxas diárias de ABS real e abonado (linhas) até a data de corte. A meta de 8% é uma referência demonstrativa. O cartão acumula somente as horas até a data de corte, para permitir comparação com as horas trabalhadas e ausentes.</dd><dt>Horas trabalhadas</dt><dd>Horas efetivamente produtivas. Instabilidade sistêmica e atraso de login são considerados tempo não produtivo neste demonstrativo.</dd><dt>Absenteísmo real</dt><dd>Horas não produtivas divididas pelas horas previstas.</dd><dt>Absenteísmo abonado</dt><dd>Horas não produtivas com abono confirmado divididas pelas horas previstas. É parte do absenteísmo real.</dd><dt>Pendente de ajuste de ponto</dt><dd>Horas não produtivas aguardando tratamento pelo gestor, sem classificação antecipada como abonadas ou não abonadas. D-1 não garante tratamento concluído.</dd><dt>Projeção de fechamento</dt><dd>Extrapolação da taxa acumulada observada até o dia de corte para o mês completo, assumindo manutenção do ritmo. Não é modelo de machine learning.</dd><dt>% ajuste ponto</dt><dd>Horas pendentes de tratamento divididas pelas horas ausentes reais, no período realizado. Mede a parcela das ausências ainda aguardando ajuste pelo gestor.</dd><dt>Desvios</dt><dd>Taxa do grupo menos média geral do filtro, ponderada por horas previstas, em pontos percentuais.</dd><dt>Motivos</dt><dd>Instabilidade sistêmica, atrasos, declaração/atestado e demais justificativas podem ser analisados em base agregada. Motivos não equivalem automaticamente a abono.</dd></dl></dialog></main>
+<script>
+const units=[
+{dir:'Diretoria A',op:'Atendimento A1',mgr:'Gerência A',r:8.9,e:1.65,vol:195},
+{dir:'Diretoria A',op:'Atendimento A2',mgr:'Gerência A',r:9.4,e:1.85,vol:215},
+{dir:'Diretoria A',op:'Retenção A',mgr:'Gerência A',r:6.8,e:1.20,vol:170},
+{dir:'Diretoria B',op:'Atendimento B1',mgr:'Gerência B',r:4.7,e:.95,vol:200},
+{dir:'Diretoria B',op:'Suporte B',mgr:'Gerência B',r:3.2,e:.60,vol:180},
+{dir:'Diretoria B',op:'Backoffice B',mgr:'Gerência B',r:2.6,e:.45,vol:160},
+{dir:'Diretoria C',op:'Atendimento C',mgr:'Gerência C1',r:7.3,e:1.35,vol:230},
+{dir:'Diretoria C',op:'Relacionamento C',mgr:'Gerência C1',r:5.1,e:.90,vol:185},
+{dir:'Diretoria C',op:'Qualidade C',mgr:'Gerência C2',r:2.2,e:.35,vol:155}];
+const $=id=>document.getElementById(id),pct=n=>n.toFixed(2).replace('.',',')+'%',num=n=>Math.round(n).toLocaleString('pt-BR');let m=10;const DATA_CORTE={ano:2026,mes:10,dia:13};
+[...new Set(units.map(u=>u.dir))].forEach(d=>$('director').add(new Option(d,d)));
+function daysInMonth(){return new Date(2026,m+1,0).getDate()}
+function buildCutoff(){const maxDay=m<DATA_CORTE.mes?daysInMonth():DATA_CORTE.dia;const select=$('cutoff');select.innerHTML='';for(let i=1;i<=maxDay;i++)select.add(new Option(String(i).padStart(2,'0'),i));select.value=String(maxDay);select.disabled=m<DATA_CORTE.mes;select.title=m<DATA_CORTE.mes?'Mês encerrado: realizado completo até o último dia':'Novembro: dados realizados disponíveis até 13/11/2026';}
+function buildOps(){let v=$('director').value,prev=$('operation').value;$('operation').innerHTML='';$('operation').add(new Option('Todas','all'));units.filter(u=>v==='all'||u.dir===v).forEach(u=>$('operation').add(new Option(u.op,u.op)));$('operation').value=[...$('operation').options].some(o=>o.value===prev)?prev:'all'}
+function dayRecord(u,i){let monthFactor=m===8?1.04:m===9?1:m===10?.98:1;let wobble=1+Math.sin(i*.73+u.r)*.14+Math.cos(i*.31+u.e)*.09;let planned=u.vol;let real=planned*u.r/100*monthFactor*wobble;let exc=real*(u.e/u.r);let pend=real*(.065+(u.r/10)*.19+(i%7===0?.10:i%5===0?.04:0));let non=real-exc-pend;return {planned,real,exc,pend,non,worked:planned-real}}
+function sum(rs){return rs.reduce((a,r)=>{for(let k of ['planned','real','exc','pend','non','worked'])a[k]+=r[k];return a},{planned:0,real:0,exc:0,pend:0,non:0,worked:0})}
+function rate(x,k){return x.planned?x[k]/x.planned*100:0}
+function deviation(v,base){let d=v-base;return `${d>0?'+':''}${d.toFixed(2).replace('.',',')} p.p.`}
+function adjustment(s){return s.real?s.pend/s.real*100:0}
+// Cores de referência com limites fixos: não mascaram diferenças entre diretorias.
+// Quanto maior o indicador, mais forte o amarelo. Desvios negativos permanecem neutros.
+function shade(value,low,high){
+ const ratio=Math.max(0,Math.min(1,(value-low)/(high-low)));
+ if(value<=low)return '#ffffff';
+ const palette=['#fff6db','#ffedb1','#ffdf78','#ffd045','#f2b600'];
+ return palette[Math.min(4,Math.floor(ratio*5))];
+}
+function colorCell(content,value,low,high){return `<td class="matrix-value" style="background-color:${shade(value,low,high)}">${content}</td>`}
+function matrixCells(s,br,be){
+ const real=rate(s,'real'),abon=rate(s,'exc'),pending=adjustment(s);
+ return colorCell(pct(real),real,2,10)
+ +colorCell(deviation(real,br),real-br,0,4)
+ +colorCell(pct(abon),abon,.35,2.1)
+ +colorCell(deviation(abon,be),abon-be,0,.9)
+ +colorCell(pct(pending),pending,7,32);
+}
+function svgChart(dayS,cut){
+ const svg=$('timeline'),w=1320,h=410,l=49,r=48,t=32,b=68;
+ const bottom=h-b, plotH=bottom-t, n=dayS.length;
+ const maxHours=Math.ceil(Math.max(...dayS.map(d=>d.planned))*1.14/250)*250;
+ const pctReal=dayS.slice(0,cut).map(d=>rate(d,'real'));
+ const pctAbon=dayS.slice(0,cut).map(d=>rate(d,'exc'));
+ const maxPct=Math.max(10,Math.ceil(Math.max(8,...pctReal)*1.1/2)*2);
+ const X=i=>l+(w-l-r)*(i+.5)/n;
+ const YH=v=>bottom-v/maxHours*plotH;
+ const YP=v=>bottom-v/maxPct*plotH;
+ const bw=Math.min(39,(w-l-r)/n*.88);
+ let s=`<rect width="${w}" height="${h}" fill="white"/>`;
+ for(let q=0;q<=4;q++){
+   let hh=maxHours*q/4,y=YH(hh),pp=maxPct*q/4;
+   s+=`<line x1="${l}" y1="${y}" x2="${w-r}" y2="${y}" stroke="#edf0f3"/>`;
+   s+=`<text x="${l-9}" y="${y+4}" text-anchor="end" font-size="11" fill="#747b86">${num(hh)} h</text>`;
+   s+=`<text x="${w-r+9}" y="${y+4}" font-size="11" fill="#747b86">${pp.toFixed(0)}%</text>`;
+ }
+ dayS.forEach((d,i)=>{
+   let xx=X(i),yy=YH(d.planned),bh=bottom-yy;
+   s+=`<rect x="${(xx-bw/2).toFixed(2)}" y="${yy.toFixed(2)}" width="${bw.toFixed(2)}" height="${bh.toFixed(2)}" rx="${Math.min(7,bw/2)}" fill="#b9c2ce"><title>${String(i+1).padStart(2,"0")}/${String(m+1).padStart(2,"0")}: ${num(d.planned)} h previstas</title></rect>`;
+   const dt=new Date(2026,m,i+1), weekday=['dom','seg','ter','qua','qui','sex','sáb'][dt.getDay()];
+   const dateLabel=`${String(i+1).padStart(2,'0')}/${String(m+1).padStart(2,'0')}`;
+   s+=`<text x="${xx}" y="${h-39}" text-anchor="middle" font-size="10.5" fill="#59616c">${dateLabel}</text>`;
+   s+=`<text x="${xx}" y="${h-23}" text-anchor="middle" font-size="10.5" fill="#777f89">${weekday}</text>`;
+ });
+ const goalY=YP(8);
+ s+=`<line x1="${l}" y1="${goalY}" x2="${w-r}" y2="${goalY}" stroke="#7b5ca9" stroke-width="2" stroke-dasharray="7 6"/>`;
+ s+=`<text x="${w-r-5}" y="${goalY-9}" text-anchor="end" font-size="13" font-weight="700" fill="#6d4b9b">Meta 8%</text>`;
+ const line=(values,color)=>{
+   if(!values.length)return '';
+   let points=values.map((v,i)=>`${X(i).toFixed(2)},${YP(v).toFixed(2)}`).join(' ');
+   return `<polyline points="${points}" fill="none" stroke="${color}" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>`+
+      values.map((v,i)=>`<circle cx="${X(i).toFixed(2)}" cy="${YP(v).toFixed(2)}" r="4.2" fill="#fff" stroke="${color}" stroke-width="2"><title>Dia ${i+1}: ${pct(v)}</title></circle>`).join('');
+ };
+ s+=line(pctReal,'#27313f')+line(pctAbon,'#c18a00');
+ if(cut<n){let xx=(X(cut-1)+X(cut))/2;s+=`<line x1="${xx}" y1="${t}" x2="${xx}" y2="${bottom}" stroke="#b7bdc7" stroke-dasharray="3 5"/><text x="${xx-5}" y="${t-8}" text-anchor="end" font-size="12" fill="#747b86">Corte: ${cut}/${String(m+1).padStart(2,'0')}</text>`;}
+ svg.setAttribute('viewBox',`0 0 ${w} ${h}`);svg.setAttribute('preserveAspectRatio','xMidYMid meet');svg.innerHTML=s;
+}
+let expandedDirs=new Set();
+function render(){
+ m=+$('month').value;let cut=m<DATA_CORTE.mes?daysInMonth():Math.min(DATA_CORTE.dia,+$('cutoff').value||DATA_CORTE.dia),dir=$('director').value,op=$('operation').value;
+ let chosen=units.filter(u=>(dir==='all'||u.dir===dir)&&(op==='all'||u.op===op));
+ let rows=chosen.map(u=>({u,s:sum(Array.from({length:cut},(_,i)=>dayRecord(u,i+1)))}));
+ let all=sum(rows.map(x=>x.s));
+ $('planned').textContent=num(all.planned)+' h';$('worked').textContent=num(all.worked)+' h';
+ $('real').textContent=pct(rate(all,'real'));$('excused').textContent=pct(rate(all,'exc'));
+ $('pending').textContent=pct(adjustment(all));$('pendingHours').textContent=num(all.pend)+' h aguardando gestor';
+ let projectedHours=all.real/cut*daysInMonth();$('forecast').textContent=pct(rate(all,'real'));
+ $('forecastNote').textContent=m<DATA_CORTE.mes?`${num(all.real)} h não produtivas no mês encerrado`:`${num(projectedHours)} h não produtivas estimadas até ${daysInMonth()}/${String(m+1).padStart(2,'0')}`;
+ $('pendingHours').textContent=`${num(all.pend)} h pendentes de ${num(all.real)} h ausentes`;
+ let daily=Array.from({length:daysInMonth()},(_,i)=>sum(chosen.map(u=>dayRecord(u,i+1))));
+ svgChart(daily,cut);
+ $('chartNote').textContent=`${String(m+1).padStart(2,'0')}/2026 · Escala: ${daysInMonth()} dias · ABS real e abonado: ${m<DATA_CORTE.mes?'mês completo':`até ${String(cut).padStart(2,'0')}/11`} · corte geral 13/11/2026 · barras em horas e linhas em %. `;
+ let br=rate(all,'real'),be=rate(all,'exc'),dirs=[...new Set(rows.map(x=>x.u.dir))];
+ $('operations').innerHTML=dirs.map(d=>{
+   let members=rows.filter(x=>x.u.dir===d),total=sum(members.map(x=>x.s)),open=expandedDirs.has(d);
+   let parent=`<tr><td><button class="tree-toggle" type="button" data-dir="${d}" aria-expanded="${open}" aria-label="${open?'Recolher':'Expandir'} ${d}">${open?'−':'+'}</button><strong>${d}</strong></td>${matrixCells(total,br,be)}</tr>`;
+   return parent+(open?members.map(({u,s})=>`<tr class="child-row"><td>${u.op}</td>${matrixCells(s,br,be)}</tr>`).join(''):'');
+ }).join('');
+ let grouped=new Map();
+ for(let {u,s} of rows){if(!grouped.has(u.mgr))grouped.set(u.mgr,[]);grouped.get(u.mgr).push(s)}
+ $('managers').innerHTML=[...grouped].map(([mgr,rs])=>{let total=sum(rs);return `<tr><td>${mgr}</td>${matrixCells(total,br,be)}</tr>`}).join('');
+ document.querySelectorAll('.tree-toggle').forEach(btn=>btn.addEventListener('click',()=>{let d=btn.dataset.dir;expandedDirs.has(d)?expandedDirs.delete(d):expandedDirs.add(d);render()}));
+}
+buildCutoff();buildOps();render();$('month').addEventListener('change',()=>{m=+$('month').value;buildCutoff();render()});$('director').addEventListener('change',()=>{buildOps();render()});$('operation').addEventListener('change',render);$('cutoff').addEventListener('change',render);$('openGlossary').addEventListener('click',()=>$('glossary').showModal());$('closeGlossary').addEventListener('click',()=>$('glossary').close());
+</script>
+<style>
+/* Mesma estratégia de enquadramento do dashboard HC, apenas dentro do iframe. */
+html.abs-embedded,html.abs-embedded body{width:100%;height:100%;overflow:hidden}
+html.abs-embedded main{width:1510px;max-width:none;margin:0;transform-origin:top left}
+</style>
+<script>
+(() => {
+  if(window.self===window.top) return;
+  document.documentElement.classList.add('abs-embedded');
+  const layout=document.querySelector('main');
+  if(!layout) return;
+  let queued=false;
+  function fit(){
+    if(queued)return;
+    queued=true;
+    requestAnimationFrame(()=>{
+      queued=false;
+      layout.style.transform='none';
+      layout.style.marginLeft='0';
+      layout.style.marginTop='0';
+      const contentWidth=1510;
+      const contentHeight=layout.scrollHeight;
+      const scale=Math.min(1,window.innerWidth/contentWidth,window.innerHeight/contentHeight);
+      layout.style.transform=`scale(${scale})`;
+      layout.style.marginLeft=Math.max(0,(window.innerWidth-contentWidth*scale)/2)+'px';
+      layout.style.marginTop=Math.max(0,(window.innerHeight-contentHeight*scale)/2)+'px';
+    });
+  }
+  window.addEventListener('load',fit);
+  window.addEventListener('resize',fit);
+  document.fonts?.ready.then(fit);
+  fit();
+})();
+</script>
+</body></html>

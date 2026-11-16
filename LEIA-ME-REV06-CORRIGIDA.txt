@@ -1,0 +1,4 @@
+V19 Revisão 06 corrigida — BASE V19 Revisão 05
+Alteração restrita ao carrossel da página inicial: Headcount, Absenteísmo, Pareto, Ishikawa e 5W2H, imagens clicáveis, 4 segundos.
+Menu Projetos, visão geral, página Metodologias, carrossel de 5 segundos das metodologias e páginas individuais preservados da Revisão 05.
+Prévia para validação. ZIP íntegro; comportamento visual não testado no navegador.

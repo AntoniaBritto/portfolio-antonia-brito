@@ -1,0 +1,7 @@
+V19 — Revisão 03 | PRÉVIA PARA AVALIAÇÃO
+
+Abra index.html. Em Projetos, selecione Pareto, Ishikawa ou 5W2H. Cada link abre diretamente o estudo correspondente, sem tela intermediária.
+As páginas individuais têm imagem à esquerda e texto à direita, em três tópicos. Em celulares, o conteúdo é empilhado para legibilidade.
+Os gráficos são ilustrativos, com dados fictícios.
+HC e Absenteísmo foram preservados a partir da V18 — Revisão 22.
+Verificações realizadas: estrutura dos arquivos e integridade ZIP. Navegação visual em navegador ainda requer avaliação.
